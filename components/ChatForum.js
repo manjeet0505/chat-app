@@ -1,6 +1,8 @@
 "use client"
 
-import React, { useEffect, useState } from 'react'
+import React from "react";
+import { useState, useEffect } from "react";
+import { User, Channel as StreamChannel } from "stream-chat";
 import {
   useCreateChatClient,
   Chat,
@@ -15,13 +17,14 @@ import {
 import "stream-chat-react/dist/css/v2/index.css";
 
 function capitalize(str){
-  return str.charAt(0).toUpperCase() + str.slice(1)
+   return str.charAt(0).toUpperCase() + str.slice(1)
 }
-const ChatForum = ({clerkUser, slug}) => {
-const apiKey = "dqqvy7wdeuek";
+const ChatForum = ({ clerkUser, slug }) => {
+  const apiKey = "dqqvy7wdeuek";
   const userId = clerkUser.id;
   const userName = clerkUser.name;
   const userToken = clerkUser.token
+
   const user = {
     id: userId,
     name: userName,
@@ -39,7 +42,7 @@ const apiKey = "dqqvy7wdeuek";
 
     const channel = client.channel('messaging', slug, {
       image: 'https://getstream.io/random_png/?name=react',
-      name: capitalize(slug) + " Discussion",
+      name: capitalize(slug) + "Discussion",
     });
 
     setChannel(channel);
@@ -59,6 +62,6 @@ const apiKey = "dqqvy7wdeuek";
       </Channel>
     </Chat>
   );
-}
+};
 
-export default ChatForum
+export default ChatForum;

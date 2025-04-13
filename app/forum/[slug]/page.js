@@ -10,13 +10,6 @@ export default async function Page({ params }) {
   const { slug } = await params;
 
   return (
-    <ChatForum
-      slug={slug}
-      clerkUser={{
-        id: user.id,
-        name: user.firstName,
-        token: user.publicMetadata.token,
-      }}
-    />
+    <ChatForum slug={slug} clerkUser={{id: user.id, name: user.firstName, token: user.publicMetadata.token}}/>
   );
 }
